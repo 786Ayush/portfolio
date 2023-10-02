@@ -57,12 +57,13 @@ const AboutSection = () => {
         <div className="mt-4 md:mt-0 text-left flex flex-col h-full">
           <h2 className="text-4xl font-bold text-white mb-4">About Me</h2>
           <p className="text-base lg:text-lg">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur
-            modi aliquid incidunt et commodi nam impedit, architecto tenetur
-            fuga magni nisi culpa quisquam. Pariatur at sunt, laborum magni
-            accusamus blanditiis nisi iusto. Perspiciatis, voluptatem
-            aspernatur? Fugiat beatae totam, expedita ea sed nihil minima
-            veritatis recusandae deleniti saepe quos suscipit non.
+            Passionate MERN developer with a strong foundation in React,
+            Node.js, and Express. I've successfully built diverse projects,
+            including a YouTube clone, showcasing my expertise in creating
+            seamless user experiences. With a keen eye for detail and a focus on
+            performance, I'm dedicated to bringing your ideas to life. Let's
+            collaborate and transform your vision into functional, elegant web
+            applications."
           </p>
           <div className="flex flex-row justify-start mt-8">
             <Tabbutton
