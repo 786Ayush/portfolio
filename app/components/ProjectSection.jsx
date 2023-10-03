@@ -9,7 +9,7 @@ const ProjectData = [
     id: 1,
     title: "Nextjs Portfolio Website",
     description: "It contain all my professional details.",
-    image: "/about-image.png",
+    image: "/portfolio.png",
     tag: ["All", "Web"],
     gitUrl: "https://github.com/786Ayush/portfolio",
     previewUrl: "https://portfolioofayushgupta.netlify.app/",
