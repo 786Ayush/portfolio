@@ -4,33 +4,31 @@ import GithubIcon from "../../public/github-icon.svg";
 import LinkedinIcon from "../../public/linkedin-icon.svg";
 import Link from "next/link";
 import Image from "next/image";
+import axios from "axios";
 
 const EmailSection = () => {
   const [emailSubmitted, setEmailsubmitted] = useState(false);
 
-  // const handleSubmit= async (e)=>{
-  //   e.preventDefault();
-  //   const data={
-  //     email:e.target.email.value,
-  //     subject:e.target.subject.value,
-  //     message: e.target.message.value
-  //   }
-  //   const jsondata= JSON.stringify(data);
-  //   const endpoinr="/api/send";
-  //   const options={
-  //     method:'POST',
-  //     headers:{'Content-Type':'application/json'},
-  //     body: jsondata
-  //   }
-  //   const response =await fetch(endpoint,options);
-  //   const resData= await response.json();
-  //   console.log(resData);
-  //   if(response.status===200)
-  //     console.log('Message sent.');
-  // }
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const data = {
+      email: e.target.email.value,
+      subject: e.target.subject.value,
+      message: e.target.message.value,
+    };
+    const jsondata = JSON.stringify(data);
+    const scriptURL='https://sheet.best/api/sheets/912e5eb9-2615-4e5c-8e52-7495045f912a'
+    axios.post(scriptURL,data)  
+      .then((response) => console.log("Success!", response, data))
+      .catch((error) => console.error("error!", error.message));
+    // if (response.status === 200) console.log("Message sent.");
+  };
 
   return (
-    <section className="grid md:grid-cols-2 my-12 md:my-12 py-24 gap-4 relative">
+    <section
+      className="grid md:grid-cols-2 my-12 md:my-12 py-24 gap-4 relative"
+      id="contact"
+    >
       <div className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-purple-900 to-transparent rounded-full h-80 w-80 z-0 blur-lg absolute top-3/4 -left-4 transform -translate-x-1/2 -translate-1/2"></div>
       <div className="z-10">
         <h5 className="text-xl font-bold text-white my-2">
@@ -56,7 +54,7 @@ const EmailSection = () => {
         </div>
       </div>
       <div className="">
-        <form action="" className="flex flex-col ">
+        <form action="" onSubmit={handleSubmit} className="flex flex-col ">
           <div className="mb-6">
             <label
               htmlFor="email"
