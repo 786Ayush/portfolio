@@ -11,6 +11,7 @@ const EmailSection = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setEmailsubmitted(true);
     const data = {
       email: e.target.email.value,
       subject: e.target.subject.value,
@@ -109,6 +110,7 @@ const EmailSection = () => {
           >
             Send Message
           </button>
+          {emailSubmitted? <p className="text-white">Submitted!</p>:null}
         </form>
       </div>
     </section>
