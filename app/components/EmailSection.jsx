@@ -17,8 +17,10 @@ const EmailSection = () => {
       message: e.target.message.value,
     };
     const jsondata = JSON.stringify(data);
-    const scriptURL='https://sheet.best/api/sheets/912e5eb9-2615-4e5c-8e52-7495045f912a'
-    axios.post(scriptURL,data)  
+    const scriptURL =
+      "https://sheet.best/api/sheets/912e5eb9-2615-4e5c-8e52-7495045f912a";
+    axios
+      .post(scriptURL, data)
       .then((response) => console.log("Success!", response, data))
       .catch((error) => console.error("error!", error.message));
     // if (response.status === 200) console.log("Message sent.");
@@ -37,12 +39,9 @@ const EmailSection = () => {
 
         <p className="text-[#ADB7BE] mb-4 max-w-md">
           {" "}
-          Passionate MERN developer with a strong foundation in React, Node.js,
-          and Express. I've successfully built diverse projects, including a
-          YouTube clone, showcasing my expertise in creating seamless user
-          experiences. With a keen eye for detail and a focus on performance,
-          I'm dedicated to bringing your ideas to life. Let's collaborate and
-          transform your vision into functional, elegant web applications.
+          I'm currently looking for new opportunities, my inbox is always open.
+          Whether you have a question or just want to say hi, I'll try my best
+          to get back to you!
         </p>
         <div className="socials flex flex-row gap-2">
           <Link href="https://github.com/786Ayush">
