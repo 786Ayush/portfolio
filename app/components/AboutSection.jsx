@@ -58,12 +58,12 @@ const AboutSection = () => {
           <h2 className="text-4xl font-bold text-white mb-4">About Me</h2>
           <p className="text-base lg:text-lg">
             Passionate MERN developer with a strong foundation in React,
-            Node.js, and Express. I've successfully built diverse projects,
+            Node.js, and Express. I&apos;ve successfully built diverse projects,
             including a YouTube clone, showcasing my expertise in creating
             seamless user experiences. With a keen eye for detail and a focus on
-            performance, I'm dedicated to bringing your ideas to life. Let's
+            performance, I&apos;m dedicated to bringing your ideas to life. Let&apos;s
             collaborate and transform your vision into functional, elegant web
-            applications."
+            applications.
           </p>
           <div className="flex flex-row justify-start mt-8">
             <Tabbutton
