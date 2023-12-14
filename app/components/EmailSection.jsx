@@ -18,12 +18,25 @@ const EmailSection = () => {
       message: e.target.message.value,
     };
     const jsondata = JSON.stringify(data);
-    const scriptURL =
-      "https://sheet.best/api/sheets/912e5eb9-2615-4e5c-8e52-7495045f912a";
-    axios
-      .post(scriptURL, data)
-      .then((response) => console.log("Success!", response, data))
-      .catch((error) => console.error("error!", error.message));
+    fetch("https://sheetdb.io/api/v1/yux3o66wz3z7t", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        data: [
+          {
+            Email: e.target.email.value,
+            Subject: e.target.subject.value,
+            Message: e.target.message.value,
+          },
+        ],
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => console.log(data));
+
     // if (response.status === 200) console.log("Message sent.");
   };
 
@@ -40,9 +53,9 @@ const EmailSection = () => {
 
         <p className="text-[#ADB7BE] mb-4 max-w-md">
           {" "}
-          I&apos;m currently looking for new opportunities, my inbox is always open.
-          Whether you have a question or just want to say hi, I&apos;ll try my best
-          to get back to you!
+          I&apos;m currently looking for new opportunities, my inbox is always
+          open. Whether you have a question or just want to say hi, I&apos;ll
+          try my best to get back to you!
         </p>
         <div className="socials flex flex-row gap-2">
           <Link href="https://github.com/786Ayush">
@@ -110,7 +123,7 @@ const EmailSection = () => {
           >
             Send Message
           </button>
-          {emailSubmitted? <p className="text-white">Submitted!</p>:null}
+          {emailSubmitted ? <p className="text-white">Submitted!</p> : null}
         </form>
       </div>
     </section>
