@@ -29,8 +29,6 @@ const HeroSection = () => {
                 1000,
                 "Compitative Programmer",
                 1000,
-                "UI/UX Designer",
-                1000,
               ]}
               wrapper="span"
               speed={50}
@@ -52,7 +50,7 @@ const HeroSection = () => {
             <button className="px-1 py-1 w-full sm:w-fit rounded-full bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 hover: bg-slate-800 text-white  mt-3">
               <Link
                 href={
-                  "https://drive.google.com/file/d/14l9DQPmhisGoLJuyIEYY4bRStOQ0GjGv/view?usp=sharing"
+                  "https://drive.google.com/file/d/1DQ5GOpEUQpqCHwYmvrH-cFoPtHe0UEkK/view?usp=sharing"
                 }
                 className="block bg-[#121212] hover:bg-slate-800 rounded-full px-5 py-2"
               >

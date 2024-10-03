@@ -16,6 +16,15 @@ const ProjectData = [
   },
   {
     id: 2,
+    title: "Codedynamos",
+    description: "Codedynamos empowers students through internships, offering hands-on experience in tech and IT services.",
+    image: "/codedynamos.png",
+    tag: ["All","Web"],
+    gitUrl: "https://github.com/786Ayush/Codedynamos",
+    previewUrl: "https://codedynamos.com",
+  },
+  {
+    id: 5,
     title: "YouTube Clone Website",
     description: "it is react website in which the data is taken from the api",
     image: "/youtubeclone.png",
@@ -41,6 +50,7 @@ const ProjectData = [
     gitUrl: "/",
     previewUrl: "/",
   },
+  
 ];
 
 const ProjectSection = () => {
