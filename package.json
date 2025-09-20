@@ -12,7 +12,7 @@
     "@heroicons/react": "^2.0.18",
     "axios": "^1.5.1",
     "framer-motion": "^10.16.4",
-    "next": "latest",
+    "next": "^15.5.3",
     "nodemailer": "^6.9.5",
     "react": "latest",
     "react-animated-numbers": "^0.16.0",

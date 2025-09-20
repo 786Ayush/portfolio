@@ -22,12 +22,17 @@ const HeroSection = () => {
             <br />
             <TypeAnimation
               sequence={[
-                // Same substring at the start will only be typed out once, initially
-                "Ayush Gupta",
-                1000, // wait 1s before replacing "Mice" with "Hamsters"
-                "Web Developer",
+                "Ayush Gupta", // Your name
                 1000,
-                "Compitative Programmer",
+                "MERN Dev", // Short for MERN Developer
+                1000,
+                "Next.js Dev", // Professional Next.js developer
+                1000,
+                "TailwindCSS", // Styling framework
+                1000,
+                "PostgresSQL", // Database
+                1000,
+                "FastAPI Dev", // Experience with FastAPI
                 1000,
               ]}
               wrapper="span"
@@ -36,9 +41,11 @@ const HeroSection = () => {
             />
           </div>
           <p className="text-[#ADB7BE] text-base sm:text-lg mb-6 lg:text-xl">
-            Dedicated MERN developer adept at building modern web applications.
-            Explore my portfolio, including a YouTube clone, and discover how I
-            can bring your project to life.
+            I’m a dedicated MERN and Full-Stack developer with hands-on
+            experience building scalable, high-performance web applications. My
+            projects range from ERP platforms for furniture businesses,
+            face-attendance systems with salary automation, and invoice
+            generation using Puppeteer, to HireKingdom, a job search platform.
           </p>
           <div className="">
             <Link
@@ -50,7 +57,7 @@ const HeroSection = () => {
             <button className="px-1 py-1 w-full sm:w-fit rounded-full bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 hover: bg-slate-800 text-white  mt-3">
               <Link
                 href={
-                  "https://drive.google.com/file/d/1Zm5eBvNGUweM_J3F9Fb-83gFpKJWb0yf/view?usp=sharing"
+                  "https://drive.google.com/file/d/1vApoUVexVcWxCcntXliOXlztg_LYCgBt/view?usp=sharing"
                 }
                 className="block bg-[#121212] hover:bg-slate-800 rounded-full px-5 py-2"
               >

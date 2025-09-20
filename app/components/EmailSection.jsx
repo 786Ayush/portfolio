@@ -4,76 +4,79 @@ import GithubIcon from "../../public/github-icon.svg";
 import LinkedinIcon from "../../public/linkedin-icon.svg";
 import Link from "next/link";
 import Image from "next/image";
-import axios from "axios";
 
 const EmailSection = () => {
-  const [emailSubmitted, setEmailsubmitted] = useState(false);
+  const [emailSubmitted, setEmailSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setEmailsubmitted(true);
-    const data = {
-      email: e.target.email.value,
-      subject: e.target.subject.value,
-      message: e.target.message.value,
-    };
-    const jsondata = JSON.stringify(data);
-    fetch("https://sheetdb.io/api/v1/yux3o66wz3z7t", {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        data: [
-          {
-            Email: e.target.email.value,
-            Subject: e.target.subject.value,
-            Message: e.target.message.value,
-          },
-        ],
-      }),
-    })
-      .then((response) => response.json())
-      .then((data) => console.log(data));
+    setEmailSubmitted(false);
+    setError("");
+    setLoading(true);
 
-    // if (response.status === 200) console.log("Message sent.");
+    const formData = {
+      Email: e.target.email.value,
+      Subject: e.target.subject.value,
+      Message: e.target.message.value,
+    };
+
+    try {
+      const response = await fetch("https://sheetdb.io/api/v1/yux3o66wz3z7t", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ data: [formData] }),
+      });
+
+      if (response.ok) {
+        setEmailSubmitted(true);
+        e.target.reset(); // Clear form
+      } else {
+        setError("Failed to submit. Please try again later.");
+      }
+    } catch (err) {
+      console.error(err);
+      setError("Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
     <section
-      className="grid md:grid-cols-2 my-12 md:my-12 py-24 gap-4 relative"
+      className="grid md:grid-cols-2 my-12 py-24 gap-4 relative"
       id="contact"
     >
+      {/* Decorative background */}
       <div className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-purple-900 to-transparent rounded-full h-80 w-80 z-0 blur-lg absolute top-3/4 -left-4 transform -translate-x-1/2 -translate-1/2"></div>
-      <div className="z-10">
-        <h5 className="text-xl font-bold text-white my-2">
-          Let&apos;s Connect
-        </h5>
 
+      {/* Contact Info & Socials */}
+      <div className="z-10">
+        <h5 className="text-2xl font-bold text-white my-2">Let's Connect!</h5>
         <p className="text-[#ADB7BE] mb-4 max-w-md">
-          {" "}
-          I&apos;m currently looking for new opportunities, my inbox is always
-          open. Whether you have a question or just want to say hi, I&apos;ll
-          try my best to get back to you!
+          I’m always excited to collaborate on innovative projects. Whether you 
+          want to discuss a potential idea, need help with development, or just 
+          want to say hi, feel free to reach out. I’ll respond as soon as possible!
         </p>
-        <div className="socials flex flex-row gap-2">
+        <div className="flex flex-row gap-3">
           <Link href="https://github.com/786Ayush">
-            <Image src={GithubIcon} alt="Github Icon" />
+            <Image src={GithubIcon} alt="Github Icon" width={28} height={28} />
           </Link>
           <Link href="https://www.linkedin.com/in/ayush0786/">
-            <Image src={LinkedinIcon} alt="Linkedin Icon" />
+            <Image src={LinkedinIcon} alt="Linkedin Icon" width={28} height={28} />
           </Link>
         </div>
       </div>
-      <div className="">
-        <form action="" onSubmit={handleSubmit} className="flex flex-col ">
+
+      {/* Contact Form */}
+      <div>
+        <form onSubmit={handleSubmit} className="flex flex-col">
+          {/* Email */}
           <div className="mb-6">
-            <label
-              htmlFor="email"
-              type="email"
-              className="text-white block mb-2 text-sm font-medium"
-            >
+            <label htmlFor="email" className="text-white block mb-2 text-sm font-medium">
               Your Email
             </label>
             <input
@@ -81,16 +84,14 @@ const EmailSection = () => {
               id="email"
               name="email"
               required
+              placeholder="you@example.com"
               className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
-              placeholder="jacob@gmail.com"
             />
           </div>
+
+          {/* Subject */}
           <div className="mb-6">
-            <label
-              htmlFor="subject"
-              type="subject"
-              className="text-white block mb-2 text-sm font-medium"
-            >
+            <label htmlFor="subject" className="text-white block mb-2 text-sm font-medium">
               Subject
             </label>
             <input
@@ -98,32 +99,37 @@ const EmailSection = () => {
               id="subject"
               name="subject"
               required
+              placeholder="Project Inquiry / Just Saying Hi"
               className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
-              placeholder="just saying hi"
             />
           </div>
 
+          {/* Message */}
           <div className="mb-6">
-            <label
-              htmlFor="message"
-              className="text-white block text-sm mb-2 font-medium"
-            >
+            <label htmlFor="message" className="text-white block mb-2 text-sm font-medium">
               Message
             </label>
             <textarea
-              name="message"
               id="message"
-              placeholder="Let's talk about..."
+              name="message"
+              placeholder="Write your message here..."
+              required
               className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
             ></textarea>
           </div>
+
+          {/* Submit Button */}
           <button
             type="submit"
-            className="bg-purple-500 hover:bg-purple-600 text-white font-medium py-2.5 px-5 rounded-lg w-full"
+            disabled={loading}
+            className="bg-purple-500 hover:bg-purple-600 text-white font-medium py-2.5 px-5 rounded-lg w-full disabled:opacity-50"
           >
-            Send Message
+            {loading ? "Sending..." : "Send Message"}
           </button>
-          {emailSubmitted ? <p className="text-white">Submitted!</p> : null}
+
+          {/* Feedback */}
+          {emailSubmitted && <p className="text-green-400 mt-2">Message sent successfully!</p>}
+          {error && <p className="text-red-400 mt-2">{error}</p>}
         </form>
       </div>
     </section>
