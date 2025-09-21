@@ -55,18 +55,24 @@ const EmailSection = () => {
 
       {/* Contact Info & Socials */}
       <div className="z-10">
-        <h5 className="text-2xl font-bold text-white my-2">Let's Connect!</h5>
+        <h5 className="text-2xl font-bold text-white my-2">{`Let's Connect!`}</h5>
         <p className="text-[#ADB7BE] mb-4 max-w-md">
-          I’m always excited to collaborate on innovative projects. Whether you 
-          want to discuss a potential idea, need help with development, or just 
-          want to say hi, feel free to reach out. I’ll respond as soon as possible!
+          {`I'm always excited to collaborate on innovative projects. Whether you 
+  want to discuss a potential idea, need help with development, or just 
+  want to say hi, feel free to reach out. I'll respond as soon as possible!`}
         </p>
+
         <div className="flex flex-row gap-3">
           <Link href="https://github.com/786Ayush">
             <Image src={GithubIcon} alt="Github Icon" width={28} height={28} />
           </Link>
           <Link href="https://www.linkedin.com/in/ayush0786/">
-            <Image src={LinkedinIcon} alt="Linkedin Icon" width={28} height={28} />
+            <Image
+              src={LinkedinIcon}
+              alt="Linkedin Icon"
+              width={28}
+              height={28}
+            />
           </Link>
         </div>
       </div>
@@ -76,7 +82,10 @@ const EmailSection = () => {
         <form onSubmit={handleSubmit} className="flex flex-col">
           {/* Email */}
           <div className="mb-6">
-            <label htmlFor="email" className="text-white block mb-2 text-sm font-medium">
+            <label
+              htmlFor="email"
+              className="text-white block mb-2 text-sm font-medium"
+            >
               Your Email
             </label>
             <input
@@ -91,7 +100,10 @@ const EmailSection = () => {
 
           {/* Subject */}
           <div className="mb-6">
-            <label htmlFor="subject" className="text-white block mb-2 text-sm font-medium">
+            <label
+              htmlFor="subject"
+              className="text-white block mb-2 text-sm font-medium"
+            >
               Subject
             </label>
             <input
@@ -106,7 +118,10 @@ const EmailSection = () => {
 
           {/* Message */}
           <div className="mb-6">
-            <label htmlFor="message" className="text-white block mb-2 text-sm font-medium">
+            <label
+              htmlFor="message"
+              className="text-white block mb-2 text-sm font-medium"
+            >
               Message
             </label>
             <textarea
@@ -128,7 +143,9 @@ const EmailSection = () => {
           </button>
 
           {/* Feedback */}
-          {emailSubmitted && <p className="text-green-400 mt-2">Message sent successfully!</p>}
+          {emailSubmitted && (
+            <p className="text-green-400 mt-2">Message sent successfully!</p>
+          )}
           {error && <p className="text-red-400 mt-2">{error}</p>}
         </form>
       </div>
